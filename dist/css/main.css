@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(#D02E48, #7F4E56);
+  display: flex;
+  font-size: 20px;
+}
+body::before {
+  content: "";
+  position: absolute;
+  background-color: #ED4D90;
+  height: 200px;
+  width: 200px;
+  top: 0;
+  left: 0;
+  -webkit-clip-path: circle(50% at 30% 30%);
+          clip-path: circle(50% at 30% 30%);
+}
+body::after {
+  content: "";
+  position: absolute;
+  background-color: #E72443;
+  height: 200px;
+  width: 200px;
+  top: calc(100% - 200px);
+  left: calc(100% - 200px);
+  -webkit-clip-path: circle(50% at 64% 66%);
+          clip-path: circle(50% at 64% 66%);
+}
+
+.container {
+  position: absolute;
+  height: 600px;
+  width: 400px;
+  background-color: #928b8b;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+}
+.container .container__calculator {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 20px 10px;
+  text-align: center;
+}
+.container .container__calculator span {
+  padding: 36px 10px;
+  border-bottom: 1px solid #BCAEB4;
+  border-right: 1px solid #BCAEB4;
+}
+.container .container__calculator span:nth-child(2) {
+  border-top: 1px solid #BCAEB4;
+  border-left: 1px solid #BCAEB4;
+}
+.container .container__calculator span:nth-child(3) {
+  border-top: 1px solid #BCAEB4;
+}
+.container .container__calculator span:nth-child(4) {
+  border-top: 1px solid #BCAEB4;
+}
+.container .container__calculator span:nth-child(5) {
+  border-top: 1px solid #BCAEB4;
+}
+.container .container__calculator span:nth-child(4n+2) {
+  border-left: 1px solid #BCAEB4;
+}
+.container .container__calculator input {
+  padding: 30px 20px;
+  font-size: 25px;
+  grid-column: 1/span 4;
+  margin: 20px 0 40px 0;
+  border: 1px solid #BCAEB4;
+  text-align: right;
+  outline: none;
+  background: transparent;
+}
+@media (max-width: 768px) {
+  .container {
+    height: 450px;
+    width: 300px;
+    font-size: 12px;
+  }
+  .container .container__calculator {
+    padding: 15px 7.5px;
+  }
+  .container .container__calculator span {
+    padding: 27px 7.5px;
+  }
+  .container .container__calculator input {
+    font-size: 12px;
+    padding: 22.5px 15px;
+  }
+}
