@@ -41,7 +41,7 @@ body::after {
   background-color: #928b8b;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
   border-radius: 10px;
   -webkit-backdrop-filter: blur(15px);
           backdrop-filter: blur(15px);
@@ -72,6 +72,10 @@ body::after {
 }
 .container .container__calculator span:nth-child(4n+2) {
   border-left: 1px solid #BCAEB4;
+}
+.container .container__calculator span:hover {
+  background-color: #B8B4B5;
+  transition: all 0.5s;
 }
 .container .container__calculator input {
   padding: 30px 20px;
