@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./dist/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <div class="container">
+        <form name="calculator" class="container__calculator" id='calc_control'>
+            <input type="text" readonly name="calc" id="calc" value="0">
+            <span class="charactersDelete" onclick="document.calculator.calc.value = '0'" id="ac">AC</span>
+            
+
+            <span class="characters" onclick="handleClicksBackspace()">
+                <i class="fas fa-backspace"></i>
+            </span>
+            <span class="characters" onclick="handleClicks(this)">x</span>
+            <span class="characters" onclick="handleClicks(this)">7</span>
+            <span class="characters" onclick="handleClicks(this)">8</span>
+            <span class="characters" onclick="handleClicks(this)">9</span>
+            <span class="characters" onclick="handleClicks(this)">/</span>
+            <span class="characters" onclick="handleClicks(this)">4</span>
+            <span class="characters" onclick="handleClicks(this)">5</span>
+            <span class="characters" onclick="handleClicks(this)">6</span>
+            <span class="characters" onclick="handleClicks(this)">+</span>
+            <span class="characters" onclick="handleClicks(this)">1</span>
+            <span class="characters" onclick="handleClicks(this)">2</span>
+            <span class="characters" onclick="handleClicks(this)">3</span>
+            <span class="characters" onclick="handleClicks(this)">-</span>
+            <span class="characters" onclick="handleClicks(this)">0</span>
+            <span class="characters" onclick="handleClicks(this)">.</span>
+            <span class="charactersResults" onclick="handleClickResults()" id="results">=</span>
+        </form>
+    </div>
+
+</body>
+
+</html>
+<script>
+    var target = false;
+    var signal = true
+    function handleClicks(id) {
+        // console.log(target);
+        if (document.calculator.calc.value == 0) {
+            signal = true;
+        }
+        if (signal) {
+            document.calculator.calc.value = '';
+            signal = false;
+        }
+        if (target === false) {
+            document.calculator.calc.value += id.textContent;
+        }
+        else {
+            document.calculator.calc.value = id.textContent;
+            target = false;
+        }
+
+    }
+    function handleClickResults() {
+        document.calculator.calc.value = eval(calculator.calc.value);
+        target = true;
+    }
+    function handleClicksBackspace() {
+        if (target === false) {
+            document.calculator.calc.value = document.calculator.calc.value.substring(0, document.calculator.calc.value.length - 1);
+        }
+        else {
+            document.calculator.calc.value = 0;
+        }
+    }
+    function handleClicksOFF() {
+        
+    }
+</script>

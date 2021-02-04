@@ -1,111 +1,113 @@
 @import './variables';
-@mixin  mobile {
-    @media (max-width: 768px)
-    {
-        @content
-    }
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    width: 100%;
-    min-height: 100vh;
-    background: $primary-color;
-    display:flex;
-    font-size: 20px;
-    &::before{
-        content: "";
-        position: absolute;
-        background-color:#ED4D90;
-        height: 200px;
-        width: 200px;
-        top: 0;
-        left: 0;
-        clip-path: circle(50% at 30% 30%);
-    }
-    &::after{
-        content: "";
-        position: absolute;
-        background-color:#E72443;
-        height: 200px;
-        width: 200px;
-        top: calc(100% - 200px);
-        left: calc(100% - 200px);
-        clip-path: circle(50% at 64% 66%);
-    }
-}
-.container{
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: $primary-color;
+  display: flex;
+  font-size: 20px;
+  &::before {
+    content: '';
     position: absolute;
-    height: 600px;
-    width: 400px;
-    background-color:$calculator-color;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%) !important;
-    border-radius: 10px;
-    
-    backdrop-filter: blur(15px);
-    #{&}__calculator{
-        display : grid;
-        grid-template-columns: auto auto auto auto;
-        padding:20px 10px;
-        text-align: center;
-        span{
-            padding:36px 10px;
-            border-bottom:1px solid $text-color;
-            border-right:1px solid $text-color;
-            // user-select: none;
-            &:nth-child(2){
-                border-top:1px solid $text-color;
-                border-left:1px solid $text-color;
-            }
-            &:nth-child(3){
-                border-top:1px solid $text-color;
-            }
-            &:nth-child(4){
-                border-top:1px solid $text-color;
-            }
-            &:nth-child(5){
-                border-top:1px solid $text-color;
-            }
-            &:nth-child(4n+2){
-                border-left:1px solid $text-color;
-            }
-            &:hover{
-                background-color:#B8B4B5;
-                transition: all 0.5s;
-            }
-        };
-        
-        input{
-            padding:30px 20px;
-            font-size: 25px;
-            grid-column: 1 / span 4;
-            margin:20px 0 40px 0;
-            border: 1px solid $text-color;
-            text-align: right;
-            outline: none;
-            background:transparent;
-        }
+    background-color: #ed4d90;
+    height: 200px;
+    width: 200px;
+    top: 0;
+    left: 0;
+    clip-path: circle(50% at 30% 30%);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #e72443;
+    height: 200px;
+    width: 200px;
+    top: calc(100% - 200px);
+    left: calc(100% - 200px);
+    clip-path: circle(50% at 64% 66%);
+  }
+}
+.container {
+  position: absolute;
+  height: 600px;
+  width: 400px;
+  background-color: $calculator-color;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  border-radius: 10px;
+
+  backdrop-filter: blur(15px);
+  #{&}__calculator {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 20px 10px;
+    text-align: center;
+    span {
+      padding: 25px 10px;
+      border-bottom: 1px solid $text-color;
+      border-right: 1px solid $text-color;
+      // user-select: none;
+      &:nth-child(2) {
+        border-top: 1px solid $text-color;
+        border-left: 1px solid $text-color;
+      }
+      &:nth-child(3) {
+        border-top: 1px solid $text-color;
+      }
+      &:nth-child(4) {
+        border-top: 1px solid $text-color;
+      }
+
+      &:nth-child(4n + 1) {
+        border-left: 1px solid $text-color;
+      }
+      &:hover {
+        background-color: #b8b4b5;
+        transition: all 0.5s;
+      }
     }
-    
-    @include mobile{
-        height: 450px;
-        width: 300px;
+
+    input {
+      padding: 30px 20px;
+      font-size: 25px;
+      grid-column: 1 / span 4;
+      margin: 20px 0 40px 0;
+      border: 1px solid $text-color;
+      text-align: right;
+      outline: none;
+      background: transparent;
+    }
+    #ac {
+      grid-column: 1 / span 2;
+    }
+    #results {
+      grid-column: 3 / 5;
+    }
+  }
+
+  @include mobile {
+    height: 450px;
+    width: 300px;
+    font-size: 12px;
+    #{&}__calculator {
+      padding: 15px 7.5px;
+      span {
+        padding: 21px 7.5px;
+      }
+      input {
         font-size: 12px;
-        #{&}__calculator{
-            padding: 15px 7.5px;
-            span{ 
-                padding:27px 7.5px;
-            }
-            input{
-                font-size: 12px;
-                padding:22.5px 15px;
-            }
-        }
+        padding: 22.5px 15px;
+      }
     }
-   
+  }
 }

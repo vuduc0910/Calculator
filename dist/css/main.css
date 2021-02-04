@@ -14,7 +14,7 @@ body {
 body::before {
   content: "";
   position: absolute;
-  background-color: #ED4D90;
+  background-color: #ed4d90;
   height: 200px;
   width: 200px;
   top: 0;
@@ -25,7 +25,7 @@ body::before {
 body::after {
   content: "";
   position: absolute;
-  background-color: #E72443;
+  background-color: #e72443;
   height: 200px;
   width: 200px;
   top: calc(100% - 200px);
@@ -53,7 +53,7 @@ body::after {
   text-align: center;
 }
 .container .container__calculator span {
-  padding: 36px 10px;
+  padding: 25px 10px;
   border-bottom: 1px solid #BCAEB4;
   border-right: 1px solid #BCAEB4;
 }
@@ -67,14 +67,11 @@ body::after {
 .container .container__calculator span:nth-child(4) {
   border-top: 1px solid #BCAEB4;
 }
-.container .container__calculator span:nth-child(5) {
-  border-top: 1px solid #BCAEB4;
-}
-.container .container__calculator span:nth-child(4n+2) {
+.container .container__calculator span:nth-child(4n+1) {
   border-left: 1px solid #BCAEB4;
 }
 .container .container__calculator span:hover {
-  background-color: #B8B4B5;
+  background-color: #b8b4b5;
   transition: all 0.5s;
 }
 .container .container__calculator input {
@@ -87,6 +84,12 @@ body::after {
   outline: none;
   background: transparent;
 }
+.container .container__calculator #ac {
+  grid-column: 1/span 2;
+}
+.container .container__calculator #results {
+  grid-column: 3/5;
+}
 @media (max-width: 768px) {
   .container {
     height: 450px;
@@ -97,7 +100,7 @@ body::after {
     padding: 15px 7.5px;
   }
   .container .container__calculator span {
-    padding: 27px 7.5px;
+    padding: 21px 7.5px;
   }
   .container .container__calculator input {
     font-size: 12px;
