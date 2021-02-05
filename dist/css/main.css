@@ -24,6 +24,7 @@ body::before {
 }
 body::after {
   content: "";
+  z-index: -1;
   position: absolute;
   background-color: #e72443;
   height: 200px;
@@ -32,7 +33,6 @@ body::after {
   left: calc(100% - 200px);
   -webkit-clip-path: circle(50% at 64% 66%);
           clip-path: circle(50% at 64% 66%);
-  z-index: -1;
 }
 
 .container {
